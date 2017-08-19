@@ -11,12 +11,15 @@ import UIKit
 class ViewController: UIViewController {
     
     var gamesPlayed = 0
+    var numberOfTimesUserWon = 0
+    var numberOfTimesiPhoneWon = 0
  
 
     @IBOutlet weak var resultsLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        resultsLabel.text = "pick a sign \n to start game"
     }
     
     
@@ -28,155 +31,119 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    // Step 1: player selects a sign
     @IBAction func playScissors(_ sender: Any) {
+        let iPhoneSign = generateRandomSign()
         
+        let resultsText = determineOutcome(mySign: "✂️", iPhoneSign: iPhoneSign)
         
-        // Step 1: player selects a sign
-        print("✌🏼 has been selected.")
-        
-        // Step 2: game randomly selects a sign
-        let someRandomNumber = arc4random_uniform(3);
-        var iPhoneSign = ""
-        
-        // 0 - paper
-        // 1 - rock
-        // 2 - scissors
-        if someRandomNumber == 0 {
-            iPhoneSign = "✋🏼"
-        } else if someRandomNumber == 1 {
-            iPhoneSign = "🤘🏼"
-        } else  if someRandomNumber == 2 {
-            iPhoneSign = "✌🏼"
-            
-        }
-        print("iPhone selected:" + iPhoneSign)
-        
-        
-        
-        // Step 3: decide who wins
-        // given player always play scissors
-        // if iphoneSign is paper, iPhone wins
-        // if iPhoneSign is rock, ties
-        // if iPhoneSign is scissors, I win
-        
-        if iPhoneSign == "🤘🏼" {
-            resultsLabel.textColor = UIColor.red
-            print("iPhone wins!")
-            resultsLabel.text = "iPhone picked: " + iPhoneSign + ". iPhone wins"
-        } else if iPhoneSign == "✌🏼" {
-            resultsLabel.textColor = UIColor.yellow
-            print("It's a tie!")
-            resultsLabel.text = "iPhone picked: " + iPhoneSign + ". It's a tie!"
-        } else if iPhoneSign == "✋🏼" {
-            resultsLabel.textColor = UIColor.green
-            print("You win!")
-            resultsLabel.text = "iPhone picked: " + iPhoneSign + ". You win!"
-            
-        }
-        
-        gamesPlayed = gamesPlayed + 1
-        gamesPlayedCounter.text = "Games played: " + String(gamesPlayed)
-      
+        resultsLabel.text = resultsText
+    
     }
     
     
     @IBAction func playPaper(_ sender: Any) {
+        let iPhoneSign = generateRandomSign()
         
-        // Step 1: player selects a sign
-        print("✋🏼 has been selected.")
+        let resultsText = determineOutcome(mySign: "🗞", iPhoneSign: iPhoneSign)
         
-        // Step 2: game randomly selects a sign
-        let someRandomNumber = arc4random_uniform(3);
-        var iPhoneSign = ""
-        
-        // 0 - paper
-        // 1 - rock
-        // 2 - scissors
-        if someRandomNumber == 0 {
-            iPhoneSign = "✋🏼"
-        } else if someRandomNumber == 1 {
-            iPhoneSign = "🤘🏼"
-        } else  if someRandomNumber == 2 {
-            iPhoneSign = "✌🏼"
-            
-        }
-        print("iPhone selected:" + iPhoneSign)
-        
-        
-        
-        // Step 3: decide who wins
-        // given player always play rock:
-        // if iphoneSign is paper, iPhone wins
-        // if iPhoneSign is rock, ties
-        // if iPhoneSign is scissors, I win
-        
-        if iPhoneSign == "✌🏼" {
-            resultsLabel.textColor = UIColor.red
-            print("iPhone wins!")
-            resultsLabel.text = "iPhone picked: " + iPhoneSign + ". iPhone wins"
-        } else if iPhoneSign == "✋🏼" {
-            print("It's a tie!")
-            resultsLabel.text = "iPhone picked: " + iPhoneSign + ". It's a tie!"
-        } else if iPhoneSign == "🤘🏼" {
-            print("You win!")
-            resultsLabel.text = "iPhone picked: " + iPhoneSign + ". You win!"
-        }
-        
-         gamesPlayed = gamesPlayed + 1
-         gamesPlayedCounter.text = "Games played: " + String(gamesPlayed)
-        
+        resultsLabel.text = resultsText
     }
     
     @IBAction func playRock(_ sender: Any) {
-        // Step 1: player selects a sign
-        print("🤘🏼 has been selected.")
         
-        // Step 2: game randomly selects a sign
-        let someRandomNumber = arc4random_uniform(3);
+        let iPhoneSign = generateRandomSign()
+        
+        let resultsText = determineOutcome(mySign: "💎", iPhoneSign: iPhoneSign)
+        
+        resultsLabel.text = resultsText
+        }
+
+    @IBAction func playLizard(_ sender: Any) {
+        let iPhoneSign = generateRandomSign()
+        
+        let resultsText = determineOutcome(mySign: "🦎", iPhoneSign: iPhoneSign)
+    
+        resultsLabel.text = resultsText
+    }
+    
+    @IBAction func playSpock(_ sender: Any) {
+        let iPhoneSign = generateRandomSign()
+        
+        let resultsText = determineOutcome(mySign: "🖖🏼", iPhoneSign: iPhoneSign)
+        
+        resultsLabel.text = resultsText
+    }
+    
+    
+
+    // Step 2: game randomly selects a sign
+    func generateRandomSign() -> String {
+        let someRandomNumber = arc4random_uniform(5);
         var iPhoneSign = ""
         
         // 0 - paper
         // 1 - rock
         // 2 - scissors
+        // 3 - lizard
+        // 4 - spock
         if someRandomNumber == 0 {
-            iPhoneSign = "✋🏼"
+            iPhoneSign = "🗞"
         } else if someRandomNumber == 1 {
-            iPhoneSign = "🤘🏼"
+            iPhoneSign = "💎"
         } else  if someRandomNumber == 2 {
-            iPhoneSign = "✌🏼"
-            
+            iPhoneSign = "✂️"
+        } else  if someRandomNumber == 3 {
+            iPhoneSign = "🦎"
+        } else  if someRandomNumber == 4 {
+            iPhoneSign = "🖖🏼"
         }
-        print("iPhone selected:" + iPhoneSign)
         
-    
-    // Step 3: decide who wins
-    // given player always play rock:
-    // if iphoneSign is paper, iPhone wins
-    // if iPhoneSign is rock, ties
-    // if iPhoneSign is scissors, I win
-    
-        if iPhoneSign == "✋🏼" {
-            resultsLabel.textColor = UIColor.red
-            print("iPhone wins!")
-            resultsLabel.text = "iPhone picked: " + iPhoneSign + ". iPhone wins"
-        } else if iPhoneSign == "🤘🏼" {
-            print("It's a tie!")
-            resultsLabel.text = "iPhone picked: " + iPhoneSign + ". It's a tie!"
-        } else if iPhoneSign == "✌🏼" {
-            print("You win!")
-            resultsLabel.text = "iPhone picked: " + iPhoneSign + ". You win!"
-        }
-            gamesPlayed = gamesPlayed + 1
-            gamesPlayedCounter.text = "Games played: " + String(gamesPlayed)
-        
-        }
-
-    @IBAction func playLizard(_ sender: Any) {
-    }
-    
-    @IBAction func playSpock(_ sender: Any) {
-    }
+        return iPhoneSign
     
     }
 
+
+    func determineOutcome(mySign: String, iPhoneSign: String) -> String {
+        // Step 3: decide who wins
+        // given player always play rock:
+        // 1. Scissors cuts Paper
+        // 2. Paper covers Rock
+        // 3. Rock crushes Lizard
+        // 4. Lizard poisons Spock
+        // 5. Spock smashes Scissors
+        // 6. Scissors decapitates Lizard
+        // 7. Lizard eats Paper
+        // 8. Paper disproves Spock
+        // 9. Spock vaporizes Rock
+        // 10. (and as it always has) Rock crushes Scissors
+        
+        var outcome = ""
+        
+        if (mySign == "✂️" && iPhoneSign == "🗞") ||
+            (mySign == "🗞" && iPhoneSign == "💎") ||
+            (mySign == "💎" && iPhoneSign == "🦎") ||
+            (mySign == "🦎" && iPhoneSign == "🖖🏼") ||
+            (mySign == "🖖🏼" && iPhoneSign == "✂️") ||
+            (mySign == "✂️" && iPhoneSign == "🦎") ||
+            (mySign == "🦎" && iPhoneSign == "🗞") ||
+            (mySign == "🗞" && iPhoneSign == "🖖🏼") ||
+            (mySign == "🖖🏼" && iPhoneSign == "💎") ||
+            (mySign == "💎" && iPhoneSign == "✂️")
+
+            {
+            outcome = mySign + "             " + iPhoneSign + "\nyou win"
+        } else if iPhoneSign == mySign {
+            outcome = mySign + "             " + iPhoneSign + "\nwe tied"
+        } else {
+            outcome = mySign + "             " + iPhoneSign + "\nyou lose"
+        }
+        
+      
+        
+         gamesPlayed = gamesPlayed + 1
+         gamesPlayedCounter.text = "GAMES PLAYED: " + String(gamesPlayed)
+        
+         return outcome
+    }
+}
