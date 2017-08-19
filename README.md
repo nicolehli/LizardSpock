@@ -14,8 +14,8 @@ Learned how to create an iOS app using Storyboard to setup the UI and Swift to a
 - [ ] Refactor code
 
 ## Screenshots
-![win](./RPS/Screenshots/resized_win.png)
+![win](./RPS/Screenshots/resize_win.png)   
 
-![lose](./RPS/Screenshots/resized_lose.png)
+![lose](./RPS/Screenshots/resize_lose.png)
 
-![tied](./RPS/Screenshots/resized_tied.png)
+![tied](./RPS/Screenshots/resize_tied.png)
