@@ -1,5 +1,5 @@
-# RPS
-Single View iOS Rock-Paper-Scissor app using Xcode and Swift
+# RPSLS
+Single View iOS Rock-Paper-Scissor-Lizard-Spock app using Xcode and Swift
 
 ## Learning Goal 
 Learned how to create an iOS app using Storyboard to setup the UI and Swift to add logic in Xcode.
@@ -10,8 +10,7 @@ Learned how to create an iOS app using Storyboard to setup the UI and Swift to a
 - [x] Determine who wins
 - [x] Display who wins to user
 - [x] Make game into Rock, Paper, Scissor, Lizard, Spock game :smile:
-- [ ] Keep track of score
-- [ ] Refactor code
+- [x] Keep track of games played
 
 ## Screenshots
 ![win](./RPS/Screenshots/resize_win.png)   
