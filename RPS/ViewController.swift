@@ -150,30 +150,33 @@ class ViewController: UIViewController {
         print("iPhone selected:" + iPhoneSign)
         
     
-    
     // Step 3: decide who wins
     // given player always play rock:
     // if iphoneSign is paper, iPhone wins
     // if iPhoneSign is rock, ties
     // if iPhoneSign is scissors, I win
     
-    if iPhoneSign == "✋🏼" {
-        resultsLabel.textColor = UIColor.red
-        print("iPhone wins!")
-        resultsLabel.text = "iPhone picked: " + iPhoneSign + ". iPhone wins"
-    } else if iPhoneSign == "🤘🏼" {
-        print("It's a tie!")
-        resultsLabel.text = "iPhone picked: " + iPhoneSign + ". It's a tie!"
-    } else if iPhoneSign == "✌🏼" {
-        print("You win!")
-        resultsLabel.text = "iPhone picked: " + iPhoneSign + ". You win!"
-    }
-         gamesPlayed = gamesPlayed + 1
-         gamesPlayedCounter.text = "Games played: " + String(gamesPlayed)
+        if iPhoneSign == "✋🏼" {
+            resultsLabel.textColor = UIColor.red
+            print("iPhone wins!")
+            resultsLabel.text = "iPhone picked: " + iPhoneSign + ". iPhone wins"
+        } else if iPhoneSign == "🤘🏼" {
+            print("It's a tie!")
+            resultsLabel.text = "iPhone picked: " + iPhoneSign + ". It's a tie!"
+        } else if iPhoneSign == "✌🏼" {
+            print("You win!")
+            resultsLabel.text = "iPhone picked: " + iPhoneSign + ". You win!"
+        }
+            gamesPlayed = gamesPlayed + 1
+            gamesPlayedCounter.text = "Games played: " + String(gamesPlayed)
         
+        }
+
+    @IBAction func playLizard(_ sender: Any) {
     }
     
+    @IBAction func playSpock(_ sender: Any) {
+    }
     
-   
-}
+    }
 
